@@ -25,12 +25,10 @@
   become: true
   
 ## Install Locate
-- name:
-  hosts: "*"
-  tasks:
-    - name: install plocate
-      apt:
-        name: plocate
-        state: present
-        update_cache: true
-      become: true
+
+- name: install plocate
+  apt:
+    name: plocate
+    state: present
+    update_cache: true
+  become: true
