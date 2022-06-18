@@ -1,10 +1,10 @@
-----
+---
 
 - hosts: "*"
   become: true
   roles:
-      - ubuntu
-      - diodonfrost.p10k
+    - diodonfrost.p10k
+
   tasks:
     - include_tasks: tasks/main.yml
       tags: always
