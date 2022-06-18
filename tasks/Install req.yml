@@ -1,33 +1,29 @@
-- name:
-  hosts: "*"
-  tasks:
-    - name: install aptitude
-      apt:
-        name: aptitude
-        state: present
-        update_cache: true
-      become: true
+#install aptitude
+- name: install aptitude
+  apt:
+    name: aptitude
+    state: present
+    update_cache: true
+  become: true
 
-- name:
-  hosts: "*"
-  tasks:
-    - name: install samba
-      apt:
-        name: samba
-        state: present
-        update_cache: true
-      become: true
-- name:
-  hosts: "*"
-  tasks:
-    - name: install docker and docker-compose
-      apt:
-        name:
-          - docker.io
-          - docker-compose
-        state: present
-        update_cache: true
-      become: true
+#Install samba
+- name: install samba
+  apt:
+    name: samba
+    state: present
+    update_cache: true
+  become: true
+
+#Install docker
+- name: install docker and docker-compose
+  apt:
+    name:
+      - docker.io
+      - docker-compose
+    state: present
+    update_cache: true
+  become: true
+  
 ## Install Locate
 - name:
   hosts: "*"
