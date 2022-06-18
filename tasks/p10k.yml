@@ -1,0 +1,23 @@
+## Install ZSH
+- name:
+  hosts: "*"
+  tasks:
+    - name: install zsh
+      apt:
+        name: 
+          - zsh
+          - zsh-autosuggestions
+          - zsh-syntax-highlighting
+          - zsh-theme-powerlevel9k
+        state: present
+        update_cache: true
+      become: true
+
+- name: 
+  hosts: "*"
+  tasks:
+    - name: change none's shell to zsh
+      user:
+        name: none
+        shell: /usr/bin/zsh
+      become: yes
