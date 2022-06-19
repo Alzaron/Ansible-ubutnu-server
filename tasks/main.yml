@@ -1,7 +1,8 @@
+---
 - name: updating os
-  include_vars: "update.yml"
+  include: "tasks/update.yml"
   tags: always
 
 - name: Include req
-  include_tasks: "install.yml"
+  include: "tasks/install.yml"
   tags: always
