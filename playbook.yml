@@ -2,9 +2,12 @@
 
 - hosts: "*"
   become: true
-  roles:
-    - diodonfrost.p10k
+  vars_files:
+    - vars/main.yml
 
   tasks:
     - include_tasks: tasks/main.yml
       tags: always
+  roles:
+    - diodonfrost.p10k
+
