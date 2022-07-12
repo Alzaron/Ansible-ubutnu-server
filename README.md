@@ -1,5 +1,5 @@
-1. add ip to server in /etc/ansible/inventory
-   or make inventory in root of folder and change ansible.cfg   
+1. Add IP of server to `/etc/ansible/inventory`
+   or make inventory in root of folder and change `ansible.cfg`   
 2. make a ssh key for server .ssh/ansible and add to server  
 ```sh
 ### Generate key
