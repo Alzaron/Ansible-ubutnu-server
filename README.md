@@ -5,9 +5,8 @@
 ### Generate key
 ssh-keygen -t ed25519 -C "Ansible"
 ```
-```
-### copy key to server
-
+```sh
+### Copy key to server
 ssh-copy-id -i ~/.ssh/yourkey.pub Ip_of_your_server
 ```
 
