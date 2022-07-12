@@ -1,6 +1,6 @@
 ---
-- name: updating os
-  include_vars: "vars/main.yml"
+- name: Include OS specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
   tags: always
 
 - name: updating os
@@ -10,3 +10,7 @@
 - name: Include req
   include_tasks: "tasks/install.yml"
   tags: always
+
+#- name: Containers | Docker and Podman
+#  include_vars: "vars/Containers.yml"
+#  tags: always

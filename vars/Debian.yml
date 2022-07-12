@@ -1,0 +1,15 @@
+---
+os_packages:
+  - aptitude
+  - git
+  - zsh
+  - neovim
+  - tmux
+  - python3-pip
+  - python3-venv
+  - nmap
+  - vim
+  - plocate
+
+
+container_rootless_user: "{{ ansible_user_id }}"

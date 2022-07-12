@@ -1,12 +1,4 @@
 ---
-#install aptitude
-- name: install aptitude
-  apt:
-    name: aptitude
-    state: present
-    update_cache: true
-  become: true
-
 #Install samba
 - name: install samba
   apt:
@@ -15,21 +7,9 @@
     update_cache: true
   become: true
 
-#Install docker
-- name: install docker and docker-compose
-  apt:
-    name:
-      - docker.io
-      - docker-compose
-    state: present
-    update_cache: true
-  become: true
-  
-## Install Locate
 
-- name: install plocate
+- name: Package | Install os packages
   apt:
-    name: plocate
+    name: "{{ item }}"
     state: present
-    update_cache: true
-  become: true
+  loop: "{{ os_packages }}"

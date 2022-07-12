@@ -1,16 +1,21 @@
 ---
 
-#- hosts: "*"
-#  become: true
-#  vars_files:
-#    - vars/main.yml
-#  tasks:
-#    - include_tasks: tasks/main.yml
-#      tags: always
-
 - hosts: "*"
   become: true
   vars_files:
-    - vars/p10k.yml
+    - defaults/main.yml
+  
+  
   roles:
-    - { role: diodonfrost.p10k, zsh_plugin: ohmyzsh }
+    - role: diodonfrost.ohmyzsh
+      vars:
+        ohmyzsh_theme: powerlevel10k/powerlevel10k
+    - role: diodonfrost.p10k
+      vars:
+        zsh_plugin: ohmyzsh
+  
+  
+  tasks:
+    - name: Playbook entry
+      include_tasks: tasks/main.yml
+      tags: always

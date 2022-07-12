@@ -1,0 +1,54 @@
+---
+
+#Install docker
+- name: install docker and docker-compose
+  apt:
+    name:
+      - docker.io
+      - docker-compose
+    state: present
+    update_cache: true
+  become: true
+
+- name: Docker | Managed group
+  group:
+    name: docker
+    state: present
+
+- name: Docker | Allow current user to use Docker
+  user:
+    name: "{{ container_rootless_user }}"
+    groups: docker
+    append: yes
+  when: container_rootless_user != "root"
+
+- name: Docker | Managed service
+  service:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: Podman | Install packages
+  apt:
+    name:
+      - podman
+      - crun
+    state: present
+
+- name: Podman | Set subuid
+  copy:
+    content: "{{ container_rootless_user }}:165536:4096"
+    dest: /etc/subuid
+    owner: root
+    group: root
+    mode: '0644'
+  when: container_rootless_user != "root"
+
+- name: Podman | Set subgid
+  copy:
+    content: "{{ container_rootless_user }}:165536:4096"
+    dest: /etc/subgid
+    owner: root
+    group: root
+    mode: '0644'
+  when: container_rootless_user != "root"
