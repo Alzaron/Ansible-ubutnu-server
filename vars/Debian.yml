@@ -10,6 +10,13 @@ os_packages:
   - nmap
   - vim
   - plocate
+  - samba
 
 
 container_rootless_user: "{{ ansible_user_id }}"
+
+docker_packages_requirement:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common

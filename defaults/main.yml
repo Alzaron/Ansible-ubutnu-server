@@ -1,2 +1,18 @@
 ---
+
+docker_install: true
+awscli_install: false
+minikube_install: false
+
+
+
+
 user_list: []
+
+
+p10k_repository_url: 'https://github.com/romkatv/powerlevel10k.git'
+zsh_plugin: zsh
+p10k_transient_prompt: "yes"
+p10k_users: "{{ ansible_user_id }}"
+p10k_prompt_style: "lean"
+

@@ -1,17 +1,11 @@
 ---
-
 - hosts: "*"
-  become: true
   vars_files:
     - defaults/main.yml
   
   
   roles:
-    - role: diodonfrost.ohmyzsh
-      vars:
-        ohmyzsh_theme: p10k
-        ohmyzsh_plugins: "git,docker,systemd"
-  
+    - { role: diodonfrost.p10k } 
   tasks:
     - name: Playbook entry
       include_tasks: tasks/main.yml
