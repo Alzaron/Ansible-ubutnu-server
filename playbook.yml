@@ -9,11 +9,8 @@
   roles:
     - role: diodonfrost.ohmyzsh
       vars:
-        ohmyzsh_theme: powerlevel10k/powerlevel10k
-    - role: diodonfrost.p10k
-      vars:
-        zsh_plugin: ohmyzsh
-  
+        ohmyzsh_theme: p10k
+        ohmyzsh_plugins: "git,docker,systemd"
   
   tasks:
     - name: Playbook entry
